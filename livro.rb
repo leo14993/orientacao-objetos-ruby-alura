@@ -12,9 +12,17 @@ class Livro
         @possui_reimpressao
     end
 
-    private
+    def to_csv
+        puts "#{@titulo}, #{@ano_lancamento}, R$ #{@preco}"
+    end
 
+    private
     def calcula_preco(base)
+        # case @ano_lancamento
+        #     when < 2006
+        #         base * 0.9
+        #     when 
+
         if @ano_lancamento < 2006
             if @possui_reimpressao
                 base * 0.9
@@ -30,13 +38,13 @@ class Livro
 end
 
 class Estoque 
-    attr_reader :livros
     def initialize
         @livros = []
     end
     def exporta_csv
         @livros.each do |livro|
-            p "#{livro.titulo}, #{livro.ano_lancamento}"
+            puts livto.to_csv
+            
         end
     end
 
@@ -62,23 +70,16 @@ def livro_para_newsletter(livro)
     end
 end
 
-
-
-
-
-
-
 algoritmos = Livro.new("Algoritmos", 100, 1998,true)
-arquitetura = Livro.new("Introducao a Arquitetura e Design de Software",
-70, 2011, true)
+arquitetura = Livro.new("Introducao a Arquitetura e Design de Software",70, 2011, true)
 
 estoque = Estoque.new
-estoque.livros << algoritmos << arquitetura
+estoque.adiciona algoritmos 
+estoque.adiciona arquitetura
+estoque.adiciona Livro.new("The Pragmatic Programmer", 100, 1999, true)
+estoque.adiciona Livro.new("Programinh Ruby", 100, 2004, true)
+estoque.adiciona nil
 
-estoque.livros << Livro.new("The Pragmatic Programmer", 100, 1999, true)
-estoque.livros << Livro.new("Programinh Ruby", 100, 2004, true)
-
-# livro_para_newsletter(algoritmos)
 
 baratos = estoque.mais_barato_que 80
 
