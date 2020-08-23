@@ -33,12 +33,12 @@ estoque.vende ruby
 estoque.vende revistona
 estoque.vende online_arquitetura
 
-puts estoque.livro_que_mais_vendeu_por(&:titulo).titulo
-puts estoque.livro_que_mais_vendeu_por(&:ano_lancamento).ano_lancamento
-puts estoque.livro_que_mais_vendeu_por(&:editora).editora
+puts estoque.livro_que_mais_vendeu_por_titulo.titulo
+puts estoque.livro_que_mais_vendeu_por_ano_lancamento.ano_lancamento
+puts estoque.livro_que_mais_vendeu_por_editora.editora
 
-puts estoque.revista_que_mais_vendeu_por(&:editora).editora
-puts estoque.ebook_que_mais_vendeu_por(&:titulo).titulo
+puts estoque.revista_que_mais_vendeu_por_editora.editora
+puts estoque.ebook_que_mais_vendeu_por_titulo.titulo
 
 # estoque << algoritmos 
 # # estoque.livros  arquitetura

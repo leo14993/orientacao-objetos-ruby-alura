@@ -12,18 +12,17 @@ class Estoque
         @vendas.count {|venda| campo.call(venda) == campo.call(produto)}
     end
 
-    def livro_que_mais_vendeu_por(&campo)
-        que_mais_vendeu_por("livro", &campo)
-    end 
-
-    def revista_que_mais_vendeu_por(&campo)
-        que_mais_vendeu_por("revista", &campo)
+    def method_missing(name)
+        matcher = name.to_s.match "(.+)_que_mais_vendeu_por_(.+)"
+        if matcher
+            tipo = matcher[1]
+            #transformando  o campo em um simbolo
+            campo = matcher[2].to_sym
+            que_mais_vendeu_por(tipo, &campo)
+        else
+            super
+        end 
     end
-
-    def ebook_que_mais_vendeu_por(&campo)
-        que_mais_vendeu_por("ebook", &campo)
-    end
-
 
     def que_mais_vendeu_por(tipo, &campo)
         @vendas.select{|l| l.tipo == tipo}.sort {|v1, v2|
