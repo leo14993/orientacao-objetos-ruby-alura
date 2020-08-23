@@ -40,6 +40,8 @@ puts estoque.livro_que_mais_vendeu_por_editora.editora
 puts estoque.revista_que_mais_vendeu_por_editora.editora
 puts estoque.ebook_que_mais_vendeu_por_titulo.titulo
 
+puts estoque.respond_to?(:ebook_que_mais_vendeu_por_titulo)
+
 # estoque << algoritmos 
 # # estoque.livros  arquitetura
 # puts estoque.maximo_necessario
