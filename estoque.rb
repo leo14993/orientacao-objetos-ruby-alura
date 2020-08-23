@@ -27,8 +27,12 @@ class Estoque
         #verifica se a chaamda de metodo é equivalente ao metodo que a gente espera,
         # ou se a nossa classe pai responde por esse metodo, então devolve algo que tem valro verdadeiro
 
-        name.to_s.match("(.+)_que_mais_vendeu_por_(.+)") || super
-    
+        matched = name.to_s.match("(.+)_que_mais_vendeu_por_(.+)")
+        #verifica se o ira receber uma string ou nulo e transforma em um boolean
+        #isso através do double bang, assim transforma um objeto ou um nulo em true ou false
+        # se !nil = true, !!nil = false
+        # se !obj = false, !! obj = true
+        !!(matched) || super
     end
 
     def exporta_csv
@@ -67,7 +71,7 @@ class Estoque
     end
 
     def que_mais_vendeu_por(tipo, &campo)
-        @vendas.select{|l| l.tipo == tipo}.sort {|v1, v2|
+        @vendas.select{|produto| produto.matches?(tipo)}.sort {|v1, v2|
             quantidade_de_vendas_por(v1, &campo) <=> 
         quantidade_de_vendas_por(v2, &campo)}.last
     end

@@ -1,4 +1,6 @@
 require_relative "livro"
+require_relative "revista"
+require_relative "ebook"
 require_relative "estoque"
 
 
@@ -12,13 +14,12 @@ def livro_para_newsletter(livro)
 end
 
 
-algoritmos = Livro.new("Algoritmos", 100, 1998,true, "", "livro")
-arquitetura = Livro.new("Introducao a Arquitetura e Design de Software",
-    70, 2011, true, "", "livro")
-programmer = Livro.new("The Pragmatic Programmer", 100, 1999, true, "", "livro")
-ruby = Livro.new("Programinh Ruby", 100, 2004, true, "", "livro")
-revistona = Livro.new("Revista de Ruby", 10, 2012, true, "Revistas", "revista")
-online_arquitetura = Livro.new("Introducao a Arquitetura e Design de Software", 50, 2012, true, "", "ebook")
+algoritmos = Livro.new("Algoritmos", 100, 1998,true, "", true)
+arquitetura = Livro.new("Introducao a Arquitetura e Design de Software", 70, 2011, true, "", false)
+programmer = Livro.new("The Pragmatic Programmer", 100, 1999, true, "", false)
+ruby = Livro.new("Programinh Ruby", 100, 2004, true, "", false)
+revistona = Revista.new("Revista de Ruby", 10, 2012, true, "Revistas", 3)
+online_arquitetura = EBook.new("Introducao a Arquitetura e Design de Software", 50, 2012, "")
 
 estoque = Estoque.new
 
