@@ -20,6 +20,10 @@ class Estoque
         que_mais_vendeu_por("revista", &campo)
     end
 
+    def ebook_que_mais_vendeu_por(&campo)
+        que_mais_vendeu_por("ebook", &campo)
+    end
+
 
     def que_mais_vendeu_por(tipo, &campo)
         @vendas.select{|l| l.tipo == tipo}.sort {|v1, v2|
