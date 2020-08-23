@@ -28,6 +28,8 @@ estoque.vende ruby
 estoque.vende ruby
 
 puts estoque.livro_que_mais_vendeu_por_titulo.titulo
+puts estoque.livro_que_mais_vendeu_por_ano.ano_lancamento
+puts estoque.livro_que_mais_vendeu_por_editora.editora
 
 # estoque << algoritmos 
 # # estoque.livros  arquitetura
