@@ -1,7 +1,7 @@
 require_relative "contador"
 
-class Estoque 
-    attr_reader :livros
+class Estoque
+    attr_reader :livros 
     def initialize
         @livros = []
         @vendas = []
@@ -14,13 +14,13 @@ class Estoque
 
     def livro_que_mais_vendeu_por_titulo
         @vendas.sort{|v1,v2|
-            quantidade_de_vendas_de_titulo(v1) <=>
-        quantidade_de_vendas_de_titulo(v2)
-        }.last
+        quantidade_de_vendas_de_titulo(v1) <=> 
+    quantidade_de_vendas_de_titulo(v2)}.last
+    end
 
     def exporta_csv
         @livros.each do |livro|
-            puts livto.to_csv
+            puts livro.to_csv
             
         end
     end
@@ -33,7 +33,7 @@ class Estoque
     def total
         @livros.size
     end
-    def <<(livro) 
+    def <<(livro )
         @livros << livro if livro
         self
     end
@@ -44,5 +44,4 @@ class Estoque
     def maximo_necessario
         @livros.maximo_necessario
     end
-    
 end
